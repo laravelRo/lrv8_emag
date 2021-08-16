@@ -26,3 +26,6 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/front/pages.php';
 //rutele pentru panoul de control al utilizatorilor
 require __DIR__ . '/front/user.php';
+
+//rutele pentru personalul administrativ al sitului
+require __DIR__ . '/admin/personal.php';
