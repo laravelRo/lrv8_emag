@@ -28,4 +28,4 @@ require __DIR__ . '/front/pages.php';
 require __DIR__ . '/front/user.php';
 
 //rutele pentru personalul administrativ al sitului
-require __DIR__ . '/admin/personal.php';
+require __DIR__ . '/admin/staff.php';

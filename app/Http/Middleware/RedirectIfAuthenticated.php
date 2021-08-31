@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RedirectIfAuthenticated
 {
@@ -21,11 +22,23 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+        if (Auth::guard('staff')->check()) {
+            Alert::info('Sunteti autentificat pe site')->persistent(true, false);
+            return redirect(route('control-panel'));
         }
+        if (Auth::guard('web')->check()) {
+            Alert::info('Sunteti autentificat pe site')->persistent(true, false);
+            return redirect(route('home'));
+        }
+
+        //codul breeze
+
+        // foreach ($guards as $guard) {
+
+        //     if (Auth::guard($guard)->check()) {
+        //         return redirect(RouteServiceProvider::HOME);
+        //     }
+        // }
 
         return $next($request);
     }

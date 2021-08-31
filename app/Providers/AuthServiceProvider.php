@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Staff;
 use Illuminate\Support\Facades\Gate;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -37,6 +38,11 @@ class AuthServiceProvider extends ServiceProvider
             return (new MailMessage)
                 ->view('front.emails.verify-email', ['url' => $url])
                 ->subject('Validare cont emag');
+        });
+
+        //gate manager
+        Gate::define('manager', function (Staff $staff) {
+            return $staff->type == 'manager';
         });
     }
 }
