@@ -29,3 +29,6 @@ require __DIR__ . '/front/user.php';
 
 //rutele pentru personalul administrativ al sitului
 require __DIR__ . '/admin/staff.php';
+
+//rutele pentru userii externi ai sitului
+require __DIR__ . '/admin/users.php';

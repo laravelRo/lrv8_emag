@@ -25,5 +25,25 @@ Route::prefix('staff/cpanel')->middleware(['auth:staff'])->group(function () {
 //rutele pentru manageri
 Route::prefix('staff/cpanel/manager')->middleware(['auth:staff', 'manager'])->group(function () {
     Route::get('staff', [ManagerController::class, 'showStaff'])->name('show.staff');
+
+    //adaugarea unui membru staff
     Route::get('staff/new', [ManagerController::class, 'newStaff'])->name('new.staff');
+    Route::post('staff/new', [ManagerController::class, 'createStaff'])->name('create.staff');
+
+    //editarea dateluor unui membru staff
+    Route::get('staff/edit/{id}', [ManagerController::class, 'editStaff'])->name('edit.staff');
+    Route::put('staff/edit/{id}', [ManagerController::class, 'updateStaff'])->name('update.staff');
+
+    //modificarea parolei unui membru staff
+    Route::put('/staff/edit/pass/{id}', [ManagerController::class, 'updatePassword'])->name('password.staff');
+
+    //blocarea unui membru staff
+    Route::delete('/staff/block/{id}', [ManagerController::class, 'blockStaff'])->name('block.staff');
+
+    //deblocarea unui membru stafff
+    Route::put('/staff/restore/{id}', [ManagerController::class, 'restoreStaff'])->name('restore.staff');
+
+    // stergerea definitiva a unui membru stafff
+     //blocarea unui membru staff
+     Route::delete('/staff/remove/{id}', [ManagerController::class, 'removeStaff'])->name('remove.staff');
 });

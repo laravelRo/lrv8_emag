@@ -14,19 +14,39 @@
 
 
             <div class="card p-4">
-                <form>
+                <form action="{{ route('create.staff') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-4">
                             <label for="name" class="form-label">Nume si prenume*</label>
-                            <input name="name" type="text" class="form-control" id="name">
+                            <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" required
+                                id="name">
+                            @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="col-md-4">
                             <label for="email" class="form-label">Email*</label>
-                            <input name="email" type="email" class="form-control" id="email">
+                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="
+                                                    email" required>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                         <div class="col-md-4">
                             <label for="phone" class="form-label">Telefon (pot fi mai multe numere)</label>
-                            <input name="phone" type="text" class="form-control" id="phone">
+                            <input name="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                                id="phone">
+                            @error('phone')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3 d-flex align-items-end">
@@ -37,29 +57,52 @@
                             </div>
                             <div class="custom-file">
                                 <label for="formFile" class="form-label">Selectati foto membru</label>
-                                <input class="form-control" type="file" id="photoFile">
+                                <input class="form-control" type="file" accept="image/*" id="photoFile" name="photo">
                             </div>
+                            @error('photo')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
 
                         <div class="col-md-4 align-bottom">
                             <label class="form-label">Selectati functia*</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="type">
                                 <option selected>Selectati functia membrului</option>
                                 <option value="editor">Editor</option>
                                 <option value="asistent">Asistent</option>
                                 <option value="manager">Manager</option>
                             </select>
+
+                            @error('type')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-5 p-3 bg-light">
                         <div class="col-md-4 offset-md-2">
                             <label for="password" class="form-label">Password*</label>
-                            <input name="password" type="password" class="form-control" id="password">
+                            <input name="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" id=" password">
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="col-md-4">
                             <label for="password_confirmation" class="form-label">Confirm password*</label>
-                            <input name="password_confirmation" type="password" class="form-control"
+                            <input name="password_confirmation" type="password"
+                                class="form-control @error('password_confirmation') is-invalid @enderror"
                                 id="password_confirmation">
+                            @error('password_confirmation')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 

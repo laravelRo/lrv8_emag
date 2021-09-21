@@ -7,6 +7,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
                     Staff
                 </a>
+                <a class="nav-link" href="{{ route('show.users') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    Users
+                </a>
             @endcan
             <div class="sb-sidenav-menu-heading">Interface</div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
