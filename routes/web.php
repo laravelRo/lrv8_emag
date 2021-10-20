@@ -26,7 +26,8 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/front/pages.php';
 //rutele pentru panoul de control al utilizatorilor
 require __DIR__ . '/front/user.php';
-// ==========
+<<<<<<< Updated upstream
+=======
 
 //rutele pentru personalul administrativ al sitului
 require __DIR__ . '/admin/staff.php';
@@ -48,3 +49,4 @@ require __DIR__ . '/admin/content/sections.php';
 
 //rutele pentru sectiuni
 require __DIR__ . '/front/content/sections.php';
+>>>>>>> Stashed changes
