@@ -7,8 +7,7 @@
 
             </div>
             <div class="col-lg-9">
-                {{-- @include('front.partials.caroussel') --}}
-                <x-content.sections-slider />
+                @include('front.partials.caroussel')
             </div>
         </div>
     </div>

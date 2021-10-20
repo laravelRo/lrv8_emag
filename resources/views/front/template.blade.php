@@ -14,8 +14,7 @@
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                {{-- @include('front.partials.menu-vertical') --}}
-                <x-content.sections-list :show-menu="$menuv" />
+                @include('front.partials.menu-vertical')
             </div>
             <div class="col-lg-9">
                 @include('front.partials.menu-orizontal')
