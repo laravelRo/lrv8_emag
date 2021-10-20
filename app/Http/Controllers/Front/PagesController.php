@@ -13,7 +13,7 @@ class PagesController extends Controller
     {
 
         return view('front.home')
-            ->with('show_menu', true);
+            ->with('menuv', true);
     }
 
     public function shopPage()
